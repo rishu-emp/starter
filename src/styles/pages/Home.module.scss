@@ -1,0 +1,8 @@
+@use '../config.scss' as *;
+
+.home {
+  height: calc(100vh - 4rem);
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,75 @@
+@use '../../styles/config.scss' as *;
+@use 'sass:color';
+
+.tableWrapper {
+  flex: 1;
+  background-color: #c5e0b4;
+
+  table {
+    display: block;
+    white-space: nowrap;
+    position: relative;
+    table-layout: fixed;
+
+    thead,
+    tbody {
+      display: table-header-group;
+    }
+
+    tbody {
+      overflow-y: scroll;
+    }
+
+    tr {
+      position: relative;
+      border: 1px solid #f2f2f2;
+    }
+
+    th,
+    td {
+      text-align: center;
+    }
+
+    th {
+      padding: 1rem 2rem;
+    }
+  }
+
+  .storeTable {
+    overflow: auto;
+
+    th,
+    td {
+      text-align: center;
+      padding: 1rem 2rem;
+    }
+  }
+
+  .actionTable {
+    th {
+      visibility: hidden;
+    }
+
+    td {
+      padding: 0.6rem 3rem;
+    }
+
+    p {
+      padding: 0.4rem 1.2rem;
+      color: white;
+      background-color: $btn-color;
+      border: none;
+      cursor: pointer;
+      outline: none;
+      margin: 0;
+
+      &:focus-visible {
+        box-shadow: 0 0 5px color.adjust($btn-color, $lightness: -10);
+      }
+
+      &:active {
+        box-shadow: 0 0 5px color.adjust($btn-color, $lightness: -10);
+      }
+    }
+  }
+}

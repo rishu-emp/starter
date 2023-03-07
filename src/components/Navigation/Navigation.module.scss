@@ -1,0 +1,36 @@
+@use '../../styles/config.scss' as *;
+@use 'sass:color';
+
+.nav {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+
+  .brandLogo {
+    margin-left: auto;
+  }
+}
+
+.navActions {
+  display: flex;
+  gap: 1rem;
+
+  button {
+    padding: 0.6rem 1.2rem;
+    color: white;
+    background-color: $btn-color;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+
+    &:focus-visible {
+      box-shadow: 0 0 5px color.adjust($btn-color, $lightness: -10);
+    }
+
+    &:active {
+      box-shadow: 0 0 5px color.adjust($btn-color, $lightness: -10);
+    }
+  }
+}

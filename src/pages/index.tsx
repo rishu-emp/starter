@@ -1,38 +1,38 @@
 import MetaTags from '@components/MetaTags.component';
-import { useDispatch, useSelector } from 'react-redux';
-import { getUserInfoRequest, signoutUser } from '@slices/auth/authSlice';
-import { ReduxStoreType } from 'types/Store.type';
+import { Fragment } from 'react';
+import styles from '@styles/pages/Home.module.scss';
+import { getStoreData } from '@api/getStoreData.api';
+import { StoreDataItemType } from 'types/StoreData.type';
+import StoreDataTable from '@components/StoreDataTable/StoreDataTable.component';
 
-export default function Home(): JSX.Element {
-  const { email, authStatus } = useSelector((store: ReduxStoreType) => store.auth);
-  const dispatch = useDispatch();
-
-  const handleClick = (): void => {
-    if (email) {
-      dispatch(signoutUser());
-    } else {
-      dispatch(getUserInfoRequest());
-    }
+type ServerSidePropsType = {
+  props: {
+    storeData: StoreDataItemType[] | undefined;
   };
+};
 
+export async function getServerSideProps(): Promise<ServerSidePropsType> {
+  let storeData;
+  try {
+    const res = await getStoreData();
+    storeData = res;
+  } catch (err) {
+    console.error(err);
+  }
+  return {
+    props: {
+      storeData,
+    }, // will be passed to the page component as props
+  };
+}
+
+export default function Home({ storeData }: { storeData: StoreDataItemType[] }): JSX.Element {
   return (
-    <>
+    <Fragment>
       <MetaTags />
-      <main>
-        <div>
-          <div>
-            {authStatus === 'loading' ? (
-              <p>Loading....</p>
-            ) : (
-              <>
-                <p> {email.length > 0 ? 'Logged in' : 'Not Logged In'}</p>
-                <p>{email.length > 0 && email}</p>
-              </>
-            )}
-          </div>
-          <button onClick={handleClick}>{email ? 'Logout' : 'LogIn'}</button>
-        </div>
+      <main className={styles.home}>
+        <StoreDataTable storeData={storeData} />
       </main>
-    </>
+    </Fragment>
   );
 }

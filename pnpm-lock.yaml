@@ -4,6 +4,8 @@ specifiers:
   '@emotion/react': ^11.10.6
   '@emotion/styled': ^11.10.6
   '@mui/material': ^5.11.11
+  '@mui/system': ^5.11.12
+  '@mui/x-data-grid': ^6.0.0
   '@reduxjs/toolkit': ^1.9.3
   '@testing-library/jest-dom': ^5.16.5
   '@testing-library/react': ^14.0.0
@@ -45,6 +47,8 @@ dependencies:
   '@emotion/react': 11.10.6_pmekkgnqduwlme35zpnqhenc34
   '@emotion/styled': 11.10.6_oouaibmszuch5k64ms7uxp2aia
   '@mui/material': 5.11.11_xqeqsl5kvjjtyxwyi3jhw3yuli
+  '@mui/system': 5.11.12_d2lgyfpecxdc2bsiwyag5wf7ti
+  '@mui/x-data-grid': 6.0.0_7qxv7tniuj25vk767fd2m5um7m
   '@reduxjs/toolkit': 1.9.3_k4ae6lp43ej6mezo3ztvx6pykq
   '@types/node': 18.14.6
   '@types/react': 18.0.28
@@ -912,7 +916,7 @@ packages:
       '@emotion/styled': 11.10.6_oouaibmszuch5k64ms7uxp2aia
       '@mui/base': 5.0.0-alpha.119_zula6vjvt3wdocc4mwcxqa6nzi
       '@mui/core-downloads-tracker': 5.11.11
-      '@mui/system': 5.11.11_d2lgyfpecxdc2bsiwyag5wf7ti
+      '@mui/system': 5.11.12_d2lgyfpecxdc2bsiwyag5wf7ti
       '@mui/types': 7.2.3_@types+react@18.0.28
       '@mui/utils': 5.11.11_react@18.2.0
       '@types/react': 18.0.28
@@ -926,8 +930,8 @@ packages:
       react-transition-group: 4.4.5_biqbaboplfbrettd7655fr4n2y
     dev: false
 
-  /@mui/private-theming/5.11.11_pmekkgnqduwlme35zpnqhenc34:
-    resolution: {integrity: sha512-yLgTkjNC1mpye2SOUkc+zQQczUpg8NvQAETvxwXTMzNgJK1pv4htL7IvBM5vmCKG7IHAB3hX26W2u6i7bxwF3A==}
+  /@mui/private-theming/5.11.12_pmekkgnqduwlme35zpnqhenc34:
+    resolution: {integrity: sha512-hnJ0svNI1TPeWZ18E6DvES8PB4NyMLwal6EyXf69rTrYqT6wZPLjB+HiCYfSOCqU/fwArhupSqIIkQpDs8CkAw==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@types/react': ^17.0.0 || ^18.0.0
@@ -937,7 +941,7 @@ packages:
         optional: true
     dependencies:
       '@babel/runtime': 7.21.0
-      '@mui/utils': 5.11.11_react@18.2.0
+      '@mui/utils': 5.11.12_react@18.2.0
       '@types/react': 18.0.28
       prop-types: 15.8.1
       react: 18.2.0
@@ -965,8 +969,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@mui/system/5.11.11_d2lgyfpecxdc2bsiwyag5wf7ti:
-    resolution: {integrity: sha512-a9gaOAJBjpzypDfhbGZQ8HzdcxdxsKkFvbp1aAWZhFHBPdehEkARNh7mj851VfEhD/GdffYt85PFKFKdUta5Eg==}
+  /@mui/system/5.11.12_d2lgyfpecxdc2bsiwyag5wf7ti:
+    resolution: {integrity: sha512-sYjsXkiwKpZDC3aS6O/6KTjji0jGINLQcrD5EJ5NTkIDiLf19I4HJhnufgKqlTWNfoDBlRohuTf3TzfM06c4ug==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
       '@emotion/react': ^11.5.0
@@ -984,10 +988,10 @@ packages:
       '@babel/runtime': 7.21.0
       '@emotion/react': 11.10.6_pmekkgnqduwlme35zpnqhenc34
       '@emotion/styled': 11.10.6_oouaibmszuch5k64ms7uxp2aia
-      '@mui/private-theming': 5.11.11_pmekkgnqduwlme35zpnqhenc34
+      '@mui/private-theming': 5.11.12_pmekkgnqduwlme35zpnqhenc34
       '@mui/styled-engine': 5.11.11_xqp3pgpqjlfxxa3zxu4zoc4fba
       '@mui/types': 7.2.3_@types+react@18.0.28
-      '@mui/utils': 5.11.11_react@18.2.0
+      '@mui/utils': 5.11.12_react@18.2.0
       '@types/react': 18.0.28
       clsx: 1.2.1
       csstype: 3.1.1
@@ -1018,6 +1022,40 @@ packages:
       prop-types: 15.8.1
       react: 18.2.0
       react-is: 18.2.0
+    dev: false
+
+  /@mui/utils/5.11.12_react@18.2.0:
+    resolution: {integrity: sha512-5vH9B/v8pzkpEPO2HvGM54ToXV6cFdAn8UrvdN8TMEEwpn/ycW0jLiyBcgUlPsQ+xha7hqXCPQYHaYFDIcwaiw==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      react: ^17.0.0 || ^18.0.0
+    dependencies:
+      '@babel/runtime': 7.21.0
+      '@types/prop-types': 15.7.5
+      '@types/react-is': 17.0.3
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-is: 18.2.0
+    dev: false
+
+  /@mui/x-data-grid/6.0.0_7qxv7tniuj25vk767fd2m5um7m:
+    resolution: {integrity: sha512-jkvDbe8OKOh/4YH7DnM20X6TbDerfaeVCOa6J+PXfDk/GDoNkcSAwIYtn15+hCY3SNWXuTXmJNiNTHxwxLfYBQ==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      '@mui/material': ^5.4.1
+      '@mui/system': ^5.4.1
+      react: ^17.0.2 || ^18.0.0
+      react-dom: ^17.0.2 || ^18.0.0
+    dependencies:
+      '@babel/runtime': 7.21.0
+      '@mui/material': 5.11.11_xqeqsl5kvjjtyxwyi3jhw3yuli
+      '@mui/system': 5.11.12_d2lgyfpecxdc2bsiwyag5wf7ti
+      '@mui/utils': 5.11.11_react@18.2.0
+      clsx: 1.2.1
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      reselect: 4.1.7
     dev: false
 
   /@next/env/13.2.3:
