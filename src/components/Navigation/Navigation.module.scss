@@ -13,9 +13,10 @@
 }
 
 .navActions {
-  display: flex;
+  // FIXME: Change to flex later
+  display: none;
   gap: 1rem;
-
+  
   button {
     padding: 0.6rem 1.2rem;
     color: white;
