@@ -1,0 +1,30 @@
+@use '../../styles/config.scss' as *;
+@use 'sass:color';
+
+.container {
+  table {
+    width: 100%;
+
+    td {
+      padding: 4px 2rem;
+
+      .editBtn {
+        padding: 0.4rem 1.4rem;
+        color: white;
+        background-color: $btn-color;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        margin: 0;
+
+        &:focus-visible {
+          box-shadow: 0 0 5px color.adjust($btn-color, $lightness: -10);
+        }
+
+        &:active {
+          box-shadow: 0 0 5px color.adjust($btn-color, $lightness: -10);
+        }
+      }
+    }
+  }
+}

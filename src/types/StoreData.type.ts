@@ -1,4 +1,4 @@
-export type StoreDataItemType = {
+export type StoreDataItemType = Record<string, any> & {
   storeId: string;
   displayName: string;
   mapIcon: string;

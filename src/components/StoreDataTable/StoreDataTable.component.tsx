@@ -2,10 +2,13 @@ import { useMemo, useState } from 'react';
 import { StoreDataItemType } from 'types/StoreData.type';
 import styles from './StoreDataTable.module.scss';
 import { TablePagination } from '@mui/material';
-import columns from './columns';
+import columns from '../../helpers/StoreDataColumns.helper';
 import { useSortableTable } from '@hooks/useSortableTable';
 import StoreDataTableHead from './components/StoreDataTableHead.component';
 import StoreDataTableBody from './components/StoreDataTableBody.component';
+import useDialog from '@hooks/useDialog';
+import StoreDataDetails from '@components/StoreDataDetails/StoreDataDetails.component';
+import useTablePagination from '@hooks/useTablePagination';
 
 type StoreDataTablePropType = {
   storeData: StoreDataItemType[];
@@ -13,22 +16,22 @@ type StoreDataTablePropType = {
 
 export default function StoreDataTable({ storeData }: StoreDataTablePropType): JSX.Element {
   const [tableData, handleSorting] = useSortableTable(storeData, columns);
-  const [page, setPage] = useState(0);
+  const [selectedStore, setSelectedStore] = useState<'' | StoreDataItemType>('');
 
-  // FIXME: change rows per page to 50
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [page, rowsPerPage, handleChangePage, handleChangeRowsPerPage] = useTablePagination({
+    currentPage: 0,
+    rowsOnEveryPage: 10,
+  });
 
   const paginatedData = useMemo(() => {
     return tableData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage);
   }, [tableData, page, rowsPerPage]);
 
-  const handleChangePage = (event: unknown, newPage: number): void => {
-    setPage(newPage);
-  };
+  const [isDialogOpen, handleDialogOpen, handleDialogClose] = useDialog();
 
-  const handleChangeRowsPerPage = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    setRowsPerPage(+event.target.value);
-    setPage(0);
+  const handleOpenStoreDetailsDialog = (storeId: string): void => {
+    handleDialogOpen();
+    setSelectedStore(() => tableData.filter((store: StoreDataItemType) => store.storeId === storeId)[0]);
   };
 
   return (
@@ -50,7 +53,7 @@ export default function StoreDataTable({ storeData }: StoreDataTablePropType): J
             {paginatedData.map((store: StoreDataItemType) => (
               <tr key={store.storeId}>
                 <td>
-                  <p>Details</p>
+                  <p onClick={(): void => handleOpenStoreDetailsDialog(store.storeId)}>Details</p>
                 </td>
               </tr>
             ))}
@@ -71,6 +74,10 @@ export default function StoreDataTable({ storeData }: StoreDataTablePropType): J
         onPageChange={handleChangePage}
         onRowsPerPageChange={handleChangeRowsPerPage}
       />
+
+      {selectedStore && (
+        <StoreDataDetails data={selectedStore} isDialogOpen={isDialogOpen} handleDialogClose={handleDialogClose} />
+      )}
     </div>
   );
 }

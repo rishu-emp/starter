@@ -1,6 +1,6 @@
 import { SortableTableColumnDef } from 'types/sortableTable.type';
 
-const columns: SortableTableColumnDef[] = [
+const StoreDataColumn: SortableTableColumnDef[] = [
   { value: 'storeId', label: 'Store ID', sortable: true },
   { value: 'displayName', label: 'Display Name', sortable: false },
   {
@@ -50,4 +50,4 @@ const columns: SortableTableColumnDef[] = [
   },
 ];
 
-export default columns;
+export default StoreDataColumn;
