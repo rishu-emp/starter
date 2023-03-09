@@ -1,8 +1,8 @@
 import { SortableTableColumnDef } from 'types/sortableTable.type';
 
 const StoreDataColumn: SortableTableColumnDef[] = [
-  { value: 'storeId', label: 'Store ID', sortable: true },
-  { value: 'displayName', label: 'Display Name', sortable: false },
+  { value: 'storeId', label: 'Store ID', sortable: true, searchable: true },
+  { value: 'displayName', label: 'Display Name', sortable: false, searchable: true },
   {
     value: 'mapIcon',
     label: 'Map Icon',
@@ -12,6 +12,7 @@ const StoreDataColumn: SortableTableColumnDef[] = [
     value: 'description',
     label: 'Description',
     sortable: false,
+    searchable: true,
   },
   {
     value: 'isClarkStore',
@@ -47,6 +48,7 @@ const StoreDataColumn: SortableTableColumnDef[] = [
     value: 'address',
     label: 'Address',
     sortable: false,
+    searchable: true,
   },
 ];
 

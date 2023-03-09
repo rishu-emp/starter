@@ -1,3 +1,4 @@
+import { Dispatch } from 'react';
 import { useState } from 'react';
 import { SortableTableColumnDef } from 'types/sortableTable.type';
 
@@ -24,7 +25,7 @@ function getDefaultSorting(defaultTableData: any, columns: any[]): any {
 export const useSortableTable = (
   data: any,
   columns: SortableTableColumnDef[],
-): [any, (sortField: string, sortOrder: string) => void] => {
+): [any, Dispatch<any>, (sortField: string, sortOrder: string) => void] => {
   const [tableData, setTableData] = useState(getDefaultSorting(data, columns));
 
   const handleSorting = (sortField: string, sortOrder: string): void => {
@@ -43,5 +44,5 @@ export const useSortableTable = (
     }
   };
 
-  return [tableData, handleSorting];
+  return [tableData, setTableData, handleSorting];
 };
